@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">nutritie</string>
+    <string name="APP_FILE">com.anticoronabrigade.nutritie.APP_FILE</string>
+    <string name="KILOS">com.anticoronabrigade.nutritie.kilos</string>
+    <string name="title_activity_home_page">Acasa</string>
+    <string name="title_activity_details">Detalii</string>
 </resources>
