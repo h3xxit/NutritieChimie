@@ -40,12 +40,23 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView textViewAmino9;
     private TextView textViewProteins;
 
+    int eatenCalories = 0;
+    int eatenProteins = 0;
+    int[] amino = new int[20];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        eatenCalories=0;
+        eatenProteins=0;
+
+        for(int i=0; i<20; i++) {
+            amino[i]=0;
+        }
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -78,24 +89,25 @@ public class DetailsActivity extends AppCompatActivity {
         textViewProteins = findViewById(R.id.textViewProteins);
 
         Integer total = getTotalCaloriesToEat(kilos);
-        Integer eaten = getTotalAteCalories();
 
         textViewTotalCalories.setText(String.valueOf(total));
-        textViewAteCalories.setText(String.valueOf(eaten));
-        textViewRemainedCalories.setText(String.valueOf(total-eaten));
+        textViewAteCalories.setText(String.valueOf(eatenCalories));
+        textViewRemainedCalories.setText(String.valueOf(total-eatenCalories));
 
-        textViewAmino1.setText(getResources().getString(R.string.amino1) + ": " + getAmino(1));
-        textViewAmino2.setText(getResources().getString(R.string.amino2) + ": " + getAmino(2));
-        textViewAmino3.setText(getResources().getString(R.string.amino3) + ": " + getAmino(3));
-        textViewAmino4.setText(getResources().getString(R.string.amino4) + ": " + getAmino(4));
-        textViewAmino5.setText(getResources().getString(R.string.amino5) + ": " + getAmino(5));
-        textViewAmino6.setText(getResources().getString(R.string.amino6) + ": " + getAmino(6));
-        textViewAmino7.setText(getResources().getString(R.string.amino7) + ": " + getAmino(7));
-        textViewAmino8.setText(getResources().getString(R.string.amino8) + ": " + getAmino(8));
-        textViewAmino9.setText(getResources().getString(R.string.amino9) + ": " + getAmino(9));
+        textViewAmino1.setText(getResources().getString(R.string.amino1) + ": " + amino[1]);
+        textViewAmino2.setText(getResources().getString(R.string.amino2) + ": " + amino[2]);
+        textViewAmino3.setText(getResources().getString(R.string.amino3) + ": " + amino[3]);
+        textViewAmino4.setText(getResources().getString(R.string.amino4) + ": " + amino[4]);
+        textViewAmino5.setText(getResources().getString(R.string.amino5) + ": " + amino[5]);
+        textViewAmino6.setText(getResources().getString(R.string.amino6) + ": " + amino[6]);
+        textViewAmino7.setText(getResources().getString(R.string.amino7) + ": " + amino[7]);
+        textViewAmino8.setText(getResources().getString(R.string.amino8) + ": " + amino[8]);
+        textViewAmino9.setText(getResources().getString(R.string.amino9) + ": " + amino[9]);
 
-        textViewProteins.setText("Proteine: " + getTotalProteins());
+        textViewProteins.setText("Proteine: " + eatenProteins + "/" + getTotalProteinsToEat(kilos));
     }
+
+
 
     @Override
     protected void onResume() {
@@ -113,7 +125,17 @@ public class DetailsActivity extends AppCompatActivity {
                 aDataRow = myReader.readLine();
                 int id = Integer.parseInt(aDataRow);
                 FoodItem item = FoodDatabase.AllFoodItems.get(id);
-                //TODO: item contine toate datele necesare
+                eatenCalories += item.getCalorii()*(quantity/100);
+                eatenProteins += item.getProteine()*(quantity/100);
+                amino[1] += item.getAmino1()*(quantity/100);
+                amino[2] += item.getAmino2()*(quantity/100);
+                amino[3] += item.getAmino3()*(quantity/100);
+                amino[4] += item.getAmino4()*(quantity/100);
+                amino[5] += item.getAmino5()*(quantity/100);
+                amino[6] += item.getAmino6()*(quantity/100);
+                amino[7] += item.getAmino7()*(quantity/100);
+                amino[8] += item.getAmino8()*(quantity/100);
+                amino[9] += item.getAmino9()*(quantity/100);
             }
             myReader.close();
         } catch (Exception e) {
@@ -126,16 +148,9 @@ public class DetailsActivity extends AppCompatActivity {
         return (int) (2.2*15*kilos);
     }
 
-    private Integer getTotalAteCalories() {
-        return 0;
-    }
 
-    private Integer getAmino(Integer id) {
-        return 0;
-    }
-
-    private Integer getTotalProteins() {
-        return 0;
+    private Integer getTotalProteinsToEat(Double kilos) {
+        return (int)(2*kilos);
     }
 
     private Double getData() {
@@ -157,4 +172,8 @@ public class DetailsActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }
