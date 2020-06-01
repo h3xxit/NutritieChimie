@@ -1,5 +1,6 @@
 package com.anticoronabrigade.nutritie;
 
+import android.bluetooth.le.ScanFilter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +44,8 @@ public class DetailsActivity extends AppCompatActivity {
 
     int eatenCalories = 0;
     int eatenProteins = 0;
-    int[] amino = new int[20];
+    double[] amino = new double[20];
+    Double kilos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +69,6 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
-        Double kilos = getData();
-        if(kilos == -1.0) {
-            deleteDataFromFile();
-            Toast.makeText(this, "Ceva nu a functionat cum ne asteptam. Te rugam sa iti reintroduci greuatea!", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, HomePageActivity.class);
-            startActivity(intent);
-        }
-
         textViewTotalCalories = findViewById(R.id.textViewTotalCalories);
         textViewAteCalories = findViewById(R.id.textViewAteCalories);
         textViewRemainedCalories = findViewById(R.id.textViewRemainedCalories);
@@ -88,38 +83,43 @@ public class DetailsActivity extends AppCompatActivity {
         textViewAmino9 = findViewById(R.id.textViewAmino9);
         textViewProteins = findViewById(R.id.textViewProteins);
 
-        Integer total = getTotalCaloriesToEat(kilos);
+        Button deleteButton = findViewById(R.id.buttonDelete);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                File myFile = new File(getFilesDir(), "FoodsConsumed");
+                try {
+                    myFile.delete();
+                    eatenCalories=0;
+                    eatenProteins=0;
+                    for(int i=0; i<20; i++) {
+                        amino[i]=0;
+                    }
+                    updateText();
+                } catch (Exception e) {
 
-        textViewTotalCalories.setText(String.valueOf(total));
-        textViewAteCalories.setText(String.valueOf(eatenCalories));
-        textViewRemainedCalories.setText(String.valueOf(total-eatenCalories));
-
-        textViewAmino1.setText(getResources().getString(R.string.amino1) + ": " + amino[1]);
-        textViewAmino2.setText(getResources().getString(R.string.amino2) + ": " + amino[2]);
-        textViewAmino3.setText(getResources().getString(R.string.amino3) + ": " + amino[3]);
-        textViewAmino4.setText(getResources().getString(R.string.amino4) + ": " + amino[4]);
-        textViewAmino5.setText(getResources().getString(R.string.amino5) + ": " + amino[5]);
-        textViewAmino6.setText(getResources().getString(R.string.amino6) + ": " + amino[6]);
-        textViewAmino7.setText(getResources().getString(R.string.amino7) + ": " + amino[7]);
-        textViewAmino8.setText(getResources().getString(R.string.amino8) + ": " + amino[8]);
-        textViewAmino9.setText(getResources().getString(R.string.amino9) + ": " + amino[9]);
-
-        textViewProteins.setText("Proteine: " + eatenProteins + "/" + getTotalProteinsToEat(kilos));
+                }
+            }
+        });
     }
 
 
 
     @Override
     protected void onResume() {
+        eatenCalories=0;
+        eatenProteins=0;
+
+        for(int i=0; i<20; i++) {
+            amino[i]=0;
+        }
+
         File myFile = new File(getFilesDir(), "FoodsConsumed");
         try {
             FileInputStream fIn = new FileInputStream(myFile);
             BufferedReader myReader = new BufferedReader(new InputStreamReader(fIn));
             String aDataRow = "";
             String aBuffer = "";
-            aDataRow = myReader.readLine();
-            if(aDataRow == null || "".equals(aDataRow))
-                throw new Exception();
             while ((aDataRow = myReader.readLine()) != null) {
                 double quantity = Double.parseDouble(aDataRow);
                 aDataRow = myReader.readLine();
@@ -141,7 +141,34 @@ public class DetailsActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        updateText();
         super.onResume();
+    }
+
+    private void updateText() {
+        kilos = getData();
+        if(kilos == -1.0) {
+            deleteDataFromFile();
+            Toast.makeText(this, "Ceva nu a functionat cum ne asteptam. Te rugam sa iti reintroduci greuatea!", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, HomePageActivity.class);
+            startActivity(intent);
+        }
+        Integer total = getTotalCaloriesToEat(kilos);
+
+        textViewTotalCalories.setText(String.valueOf(total));
+        textViewAteCalories.setText(String.valueOf(eatenCalories));
+        textViewRemainedCalories.setText(String.valueOf(total-eatenCalories));
+        textViewAmino1.setText(getResources().getString(R.string.amino1) + ": " + (int)amino[1]);
+        textViewAmino2.setText(getResources().getString(R.string.amino2) + ": " + (int)amino[2]);
+        textViewAmino3.setText(getResources().getString(R.string.amino3) + ": " + (int)amino[3]);
+        textViewAmino4.setText(getResources().getString(R.string.amino4) + ": " + (int)amino[4]);
+        textViewAmino5.setText(getResources().getString(R.string.amino5) + ": " + (int)amino[5]);
+        textViewAmino6.setText(getResources().getString(R.string.amino6) + ": " + (int)amino[6]);
+        textViewAmino7.setText(getResources().getString(R.string.amino7) + ": " + (int)amino[7]);
+        textViewAmino8.setText(getResources().getString(R.string.amino8) + ": " + (int)amino[8]);
+        textViewAmino9.setText(getResources().getString(R.string.amino9) + ": " + (int)amino[9]);
+
+        textViewProteins.setText("Proteine: " + eatenProteins + "/" + getTotalProteinsToEat(kilos));
     }
 
     private Integer getTotalCaloriesToEat(Double kilos) {
