@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.anticoronabrigade.nutritie.FoodList.FoodItem;
+import com.anticoronabrigade.nutritie.FoodList.FoodList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -14,6 +16,11 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -44,8 +51,7 @@ public class DetailsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(DetailsActivity.this, FoodList.class));
             }
         });
 
@@ -89,6 +95,31 @@ public class DetailsActivity extends AppCompatActivity {
         textViewAmino9.setText("Amino9: " + getAmino(9));
 
         textViewProteins.setText("Proteine: " + getTotalProteins());
+    }
+
+    @Override
+    protected void onResume() {
+        File myFile = new File(getFilesDir(), "FoodsConsumed");
+        try {
+            FileInputStream fIn = new FileInputStream(myFile);
+            BufferedReader myReader = new BufferedReader(new InputStreamReader(fIn));
+            String aDataRow = "";
+            String aBuffer = "";
+            aDataRow = myReader.readLine();
+            if(aDataRow == null || "".equals(aDataRow))
+                throw new Exception();
+            while ((aDataRow = myReader.readLine()) != null) {
+                double quantity = Double.parseDouble(aDataRow);
+                aDataRow = myReader.readLine();
+                int id = Integer.parseInt(aDataRow);
+                FoodItem item = FoodDatabase.AllFoodItems.get(id);
+                //TODO: item contine toate datele necesare
+            }
+            myReader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        super.onResume();
     }
 
     private Integer getTotalCaloriesToEat(Double kilos) {
