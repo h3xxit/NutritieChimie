@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if(alreadyHaveData()) {
-            Intent intent = new Intent(this, HomePageActivity.class);
+            Intent intent = new Intent(this, DetailsActivity.class);
             startActivity(intent);
             return;
         }
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 boolean saved = savedDataToFile();
                 if(saved) {
                     Log.d("SAVED", "DATA SAVED");
-                    Intent intent = new Intent(context, HomePageActivity.class);
+                    Intent intent = new Intent(context, DetailsActivity.class);
                     startActivity(intent);
                 }
             }
