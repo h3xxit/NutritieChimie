@@ -27,7 +27,7 @@
             android:id="@+id/cv_proteine"
             android:layout_below="@+id/cv_food"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
             android:layout_toEndOf="@+id/cv_proteine"
             android:layout_below="@+id/cv_food"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
             android:layout_toEndOf="@+id/cv_calorii"
             android:layout_below="@+id/cv_food"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
 
         <!-- _____________________________________________________________________________________________ -->
 
@@ -55,7 +55,7 @@
             android:id="@+id/cv_amino2"
             android:layout_below="@+id/cv_proteine"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
             android:layout_below="@+id/cv_proteine"
             android:layout_toEndOf="@+id/cv_amino2"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,7 +73,7 @@
             android:layout_toEndOf="@+id/cv_amino3"
             android:layout_below="@+id/cv_proteine"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
 
         <!-- _____________________________________________________________________________________________ -->
 
@@ -83,7 +83,7 @@
             android:id="@+id/cv_amino5"
             android:layout_below="@+id/cv_amino2"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
             android:layout_toEndOf="@+id/cv_amino5"
             android:layout_below="@+id/cv_amino2"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,7 +101,7 @@
             android:layout_toEndOf="@+id/cv_amino6"
             android:layout_below="@+id/cv_amino2"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
 
         <!-- _____________________________________________________________________________________________ -->
 
@@ -111,7 +111,7 @@
             android:id="@+id/cv_amino8"
             android:layout_below="@+id/cv_amino5"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
             android:layout_below="@+id/cv_amino5"
             android:layout_toEndOf="@id/cv_amino8"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"/>
+            android:textSize="12sp"/>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

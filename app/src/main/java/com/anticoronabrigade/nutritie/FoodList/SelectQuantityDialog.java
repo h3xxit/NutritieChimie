@@ -99,12 +99,12 @@ public class SelectQuantityDialog extends DialogFragment {
         try {
             qt = Double.parseDouble(quantityET.getText().toString());
         } catch (Exception ignored) {
-            Toast.makeText(FoodListContext, "Select a non-null quantity", Toast.LENGTH_LONG).show();
+            Toast.makeText(FoodListContext, "Select a valid quantity", Toast.LENGTH_LONG).show();
             return;
         }
         if(qt == 0)
         {
-            Toast.makeText(FoodListContext, "Select a non-null quantity", Toast.LENGTH_LONG).show();
+            Toast.makeText(FoodListContext, "Select a valid quantity", Toast.LENGTH_LONG).show();
             return;
         }
         writeToFile(item, qt);
