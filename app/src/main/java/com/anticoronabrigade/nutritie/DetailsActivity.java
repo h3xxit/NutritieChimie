@@ -94,15 +94,15 @@ public class DetailsActivity extends AppCompatActivity {
         textViewAteCalories.setText(String.valueOf(eatenCalories));
         textViewRemainedCalories.setText(String.valueOf(total-eatenCalories));
 
-        textViewAmino1.setText("Amino1: " + amino[1]);
-        textViewAmino2.setText("Amino2: " + amino[2]);
-        textViewAmino3.setText("Amino3: " + amino[3]);
-        textViewAmino4.setText("Amino4: " + amino[4]);
-        textViewAmino5.setText("Amino5: " + amino[5]);
-        textViewAmino6.setText("Amino6: " + amino[6]);
-        textViewAmino7.setText("Amino7: " + amino[7]);
-        textViewAmino8.setText("Amino8: " + amino[8]);
-        textViewAmino9.setText("Amino9: " + amino[9]);
+        textViewAmino1.setText(getResources().getString(R.string.amino1) + ": " + amino[1]);
+        textViewAmino2.setText(getResources().getString(R.string.amino2) + ": " + amino[2]);
+        textViewAmino3.setText(getResources().getString(R.string.amino3) + ": " + amino[3]);
+        textViewAmino4.setText(getResources().getString(R.string.amino4) + ": " + amino[4]);
+        textViewAmino5.setText(getResources().getString(R.string.amino5) + ": " + amino[5]);
+        textViewAmino6.setText(getResources().getString(R.string.amino6) + ": " + amino[6]);
+        textViewAmino7.setText(getResources().getString(R.string.amino7) + ": " + amino[7]);
+        textViewAmino8.setText(getResources().getString(R.string.amino8) + ": " + amino[8]);
+        textViewAmino9.setText(getResources().getString(R.string.amino9) + ": " + amino[9]);
 
         textViewProteins.setText("Proteine: " + eatenProteins + "/" + getTotalProteinsToEat(kilos));
     }

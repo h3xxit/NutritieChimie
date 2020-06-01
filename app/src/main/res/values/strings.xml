@@ -2,20 +2,30 @@
     <string name="app_name">nutritie</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
 
+    <string name="amino1">Leucina</string>
+    <string name="amino2">Isoleucina</string>
+    <string name="amino3">Lizina</string>
+    <string name="amino4">Metionina</string>
+    <string name="amino5">Fenilalanina</string>
+    <string name="amino6">Treonina</string>
+    <string name="amino7">Triptofanul</string>
+    <string name="amino8">Valina</string>
+    <string name="amino9">Histidina</string>
+
     <string name="food_categ_prompt">Sort</string>
     <string-array name="food_categ_arrays">
         <item>Alphabetic</item>
         <item>Proteine</item>
         <item>Calorii</item>
-        <item>Amino1</item>
-        <item>Amino2</item>
-        <item>Amino3</item>
-        <item>Amino4</item>
-        <item>Amino5</item>
-        <item>Amino6</item>
-        <item>Amino7</item>
-        <item>Amino8</item>
-        <item>Amino9</item>
+        <item>Leucina</item>
+        <item>Isoleucina</item>
+        <item>Lizina</item>
+        <item>Metionina</item>
+        <item>Fenilalanina</item>
+        <item>Treonina</item>
+        <item>Triptofanul</item>
+        <item>Valina</item>
+        <item>Histidina</item>
     </string-array>
     <string name="APP_FILE">com.anticoronabrigade.nutritie.APP_FILE</string>
     <string name="KILOS">com.anticoronabrigade.nutritie.kilos</string>

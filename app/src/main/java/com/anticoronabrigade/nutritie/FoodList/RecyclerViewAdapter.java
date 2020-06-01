@@ -1,5 +1,6 @@
 package com.anticoronabrigade.nutritie.FoodList;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,10 +50,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     List<FoodItem> Notifications;
+    Context context;
 
-    public RecyclerViewAdapter(List<FoodItem> Notifications, OnNoteListener onNoteListener){
+    public RecyclerViewAdapter(List<FoodItem> Notifications, OnNoteListener onNoteListener, Context context){
         this.Notifications=Notifications;
         this.mOnNoteListener=onNoteListener;
+        this.context = context;
     }
     @NonNull
     @Override
@@ -67,15 +70,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.foodName.setText(Notifications.get(position).getName());
         holder.proteine.setText(String.format("Proteine: %s", Notifications.get(position).getProteine()));
         holder.calorii.setText(String.format("Calorii: %s", Notifications.get(position).getCalorii()));
-        holder.amino1.setText(String.format("Amino1: %s", Notifications.get(position).getAmino1()));
-        holder.amino2.setText(String.format("Amino2: %s", Notifications.get(position).getAmino2()));
-        holder.amino3.setText(String.format("Amino3: %s", Notifications.get(position).getAmino3()));
-        holder.amino4.setText(String.format("Amino4: %s", Notifications.get(position).getAmino4()));
-        holder.amino5.setText(String.format("Amino5: %s", Notifications.get(position).getAmino5()));
-        holder.amino6.setText(String.format("Amino6: %s", Notifications.get(position).getAmino6()));
-        holder.amino7.setText(String.format("Amino7: %s", Notifications.get(position).getAmino7()));
-        holder.amino8.setText(String.format("Amino8: %s", Notifications.get(position).getAmino8()));
-        holder.amino9.setText(String.format("Amino9: %s", Notifications.get(position).getAmino9()));
+        holder.amino1.setText(String.format(context.getResources().getString(R.string.amino1) + ": %s", Notifications.get(position).getAmino1()));
+        holder.amino2.setText(String.format(context.getResources().getString(R.string.amino2) + ": %s", Notifications.get(position).getAmino2()));
+        holder.amino3.setText(String.format(context.getResources().getString(R.string.amino3) + ": %s", Notifications.get(position).getAmino3()));
+        holder.amino4.setText(String.format(context.getResources().getString(R.string.amino4) + ": %s", Notifications.get(position).getAmino4()));
+        holder.amino5.setText(String.format(context.getResources().getString(R.string.amino5) + ": %s", Notifications.get(position).getAmino5()));
+        holder.amino6.setText(String.format(context.getResources().getString(R.string.amino6) + ": %s", Notifications.get(position).getAmino6()));
+        holder.amino7.setText(String.format(context.getResources().getString(R.string.amino7) + ": %s", Notifications.get(position).getAmino7()));
+        holder.amino8.setText(String.format(context.getResources().getString(R.string.amino8) + ": %s", Notifications.get(position).getAmino8()));
+        holder.amino9.setText(String.format(context.getResources().getString(R.string.amino9) + ": %s", Notifications.get(position).getAmino9()));
     }
 
     @Override

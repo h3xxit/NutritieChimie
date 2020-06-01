@@ -52,7 +52,7 @@ public class FoodList extends AppCompatActivity implements RecyclerViewAdapter.O
         initSpinner();
         addToList();
 
-        adapter = new RecyclerViewAdapter(FoodItems, this);
+        adapter = new RecyclerViewAdapter(FoodItems, this, this);
         recyclerView.setAdapter(adapter);
 
     }
