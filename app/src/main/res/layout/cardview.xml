@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_food"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="16dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_proteine"
+            android:layout_below="@+id/cv_food"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_calorii"
+            android:layout_toEndOf="@+id/cv_proteine"
+            android:layout_below="@+id/cv_food"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_amino1"
+            android:layout_toEndOf="@+id/cv_calorii"
+            android:layout_below="@+id/cv_food"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+
+        <!-- _____________________________________________________________________________________________ -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_amino2"
+            android:layout_below="@+id/cv_proteine"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_amino3"
+            android:layout_below="@+id/cv_proteine"
+            android:layout_toEndOf="@+id/cv_amino2"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_amino4"
+            android:layout_toEndOf="@+id/cv_amino3"
+            android:layout_below="@+id/cv_proteine"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+
+        <!-- _____________________________________________________________________________________________ -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_amino5"
+            android:layout_below="@+id/cv_amino2"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_amino6"
+            android:layout_toEndOf="@+id/cv_amino5"
+            android:layout_below="@+id/cv_amino2"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_amino7"
+            android:layout_toEndOf="@+id/cv_amino6"
+            android:layout_below="@+id/cv_amino2"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+
+        <!-- _____________________________________________________________________________________________ -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_amino8"
+            android:layout_below="@+id/cv_amino5"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_amino9"
+            android:layout_below="@+id/cv_amino5"
+            android:layout_toEndOf="@id/cv_amino8"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
