@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">nutritie</string>
-
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
 
     <string name="food_categ_prompt">Sort</string>
@@ -18,4 +17,8 @@
         <item>Amino8</item>
         <item>Amino9</item>
     </string-array>
+    <string name="APP_FILE">com.anticoronabrigade.nutritie.APP_FILE</string>
+    <string name="KILOS">com.anticoronabrigade.nutritie.kilos</string>
+    <string name="title_activity_home_page">Acasa</string>
+    <string name="title_activity_details">Detalii</string>
 </resources>

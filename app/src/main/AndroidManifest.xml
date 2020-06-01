@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".FoodList.FoodList"></activity>
+        <activity
+            android:name=".DetailsActivity"
+            android:label="@string/title_activity_details"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".HomePageActivity"
+            android:label="@string/title_activity_home_page"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
