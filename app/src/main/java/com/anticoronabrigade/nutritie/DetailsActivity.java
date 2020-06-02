@@ -158,15 +158,15 @@ public class DetailsActivity extends AppCompatActivity {
         textViewTotalCalories.setText(String.valueOf(total));
         textViewAteCalories.setText(String.valueOf(eatenCalories));
         textViewRemainedCalories.setText(String.valueOf(total-eatenCalories));
-        textViewAmino1.setText(getResources().getString(R.string.amino1) + ": " + (int)amino[1]);
-        textViewAmino2.setText(getResources().getString(R.string.amino2) + ": " + (int)amino[2]);
-        textViewAmino3.setText(getResources().getString(R.string.amino3) + ": " + (int)amino[3]);
-        textViewAmino4.setText(getResources().getString(R.string.amino4) + ": " + (int)amino[4]);
-        textViewAmino5.setText(getResources().getString(R.string.amino5) + ": " + (int)amino[5]);
-        textViewAmino6.setText(getResources().getString(R.string.amino6) + ": " + (int)amino[6]);
-        textViewAmino7.setText(getResources().getString(R.string.amino7) + ": " + (int)amino[7]);
-        textViewAmino8.setText(getResources().getString(R.string.amino8) + ": " + (int)amino[8]);
-        textViewAmino9.setText(getResources().getString(R.string.amino9) + ": " + (int)amino[9]);
+        textViewAmino1.setText(getResources().getString(R.string.amino1) + ": " + amino[1]);
+        textViewAmino2.setText(getResources().getString(R.string.amino2) + ": " + amino[2]);
+        textViewAmino3.setText(getResources().getString(R.string.amino3) + ": " + amino[3]);
+        textViewAmino4.setText(getResources().getString(R.string.amino4) + ": " + amino[4]);
+        textViewAmino5.setText(getResources().getString(R.string.amino5) + ": " + amino[5]);
+        textViewAmino6.setText(getResources().getString(R.string.amino6) + ": " + amino[6]);
+        textViewAmino7.setText(getResources().getString(R.string.amino7) + ": " + amino[7]);
+        textViewAmino8.setText(getResources().getString(R.string.amino8) + ": " + amino[8]);
+        textViewAmino9.setText(getResources().getString(R.string.amino9) + ": " + amino[9]);
 
         textViewProteins.setText("Proteine: " + eatenProteins + "/" + getTotalProteinsToEat(kilos));
     }
