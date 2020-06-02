@@ -73,6 +73,14 @@ public class FoodList extends AppCompatActivity implements RecyclerViewAdapter.O
         });
     }
 
+    int cmpDouble(double a, double b) {
+        if(a < b)
+            return -1;
+        if(a == b)
+            return  0;
+        return 1;
+    }
+
     void createComparators() {
         comparList = new ArrayList<>();
         comparList.add( new Comparator<FoodItem>() {
@@ -84,67 +92,67 @@ public class FoodList extends AppCompatActivity implements RecyclerViewAdapter.O
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getProteine() - b.getProteine());
+                return cmpDouble(a.getProteine(), b.getProteine());
             }
         });
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getCalorii() - b.getCalorii());
+                return cmpDouble(a.getCalorii(), b.getCalorii());
             }
         });
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getAmino1() - b.getAmino1());
+                return cmpDouble(a.getAmino1(), b.getAmino1());
             }
         });
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getAmino2() - b.getAmino2());
+                return cmpDouble(a.getAmino2(), b.getAmino2());
             }
         });
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getAmino3() - b.getAmino3());
+                return cmpDouble(a.getAmino3(), b.getAmino3());
             }
         });
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getAmino4() - b.getAmino4());
+                return cmpDouble(a.getAmino4(), b.getAmino4());
             }
         });
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getAmino5() - b.getAmino5());
+                return cmpDouble(a.getAmino5(), b.getAmino5());
             }
         });
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getAmino6() - b.getAmino6());
+                return cmpDouble(a.getAmino6(), b.getAmino6());
             }
         });
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getAmino7() - b.getAmino7());
+                return cmpDouble(a.getAmino7(), b.getAmino7());
             }
         });
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getAmino8() - b.getAmino8());
+                return cmpDouble(a.getAmino8(), b.getAmino8());
             }
         });
         comparList.add(new Comparator<FoodItem>() {
             @Override
             public int compare(FoodItem a, FoodItem b) {
-                return (int)(a.getAmino9() - b.getAmino9());
+                return cmpDouble(a.getAmino9(), b.getAmino9());
             }
         });
     }
